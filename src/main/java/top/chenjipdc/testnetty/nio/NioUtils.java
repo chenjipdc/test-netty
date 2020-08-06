@@ -11,6 +11,7 @@ import java.util.Set;
  * @author chenjipdc@gmail.com
  * @date 2020-06-09 10:52
  */
+@SuppressWarnings("AlibabaAvoidManuallyCreateThread")
 public class NioUtils {
 
     private static final int PORT = 29901;
@@ -35,6 +36,7 @@ public class NioUtils {
             new Thread(() -> {
                 while (true) {
                     try {
+                        // 阻塞，等待事件
                         sel.select(1000);
                     } catch (IOException e) {
                         e.printStackTrace();
